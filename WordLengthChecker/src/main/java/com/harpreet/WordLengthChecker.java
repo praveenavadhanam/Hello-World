@@ -9,6 +9,7 @@ public class WordLengthChecker {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		logger.debug( "largest word is  " + lengthChecker(args[0]) ) ;
+		
 	}
 
 	public static String lengthChecker(String input) {
@@ -28,6 +29,7 @@ public class WordLengthChecker {
 				size = words[i].length();
 			}
 		}
+		logger.debug(("length is "+size));
 		return largestWord;
 	}
 
