@@ -10,15 +10,14 @@ import com.harpreet.WordLengthChecker;
 public class WordLengthCheckerTestNG {
 
 static Logger logger = Logger.getLogger(WordLengthCheckerTestNG.class);
-	
 
-	
 	@Test(dataProvider="provideInput")
 	public void testLengthChecker(String data,String expected) {
-		int expectedLength = expected.length();
+		int expectedLength =0;
 		String largestWord;
-		if (data.length()>1)
+		if (data!= null && data.length()>1)
 		{
+			expectedLength= expected.length();
 			largestWord  = WordLengthChecker.lengthChecker(data);
 			Assert.assertTrue(expected.equals(largestWord));
 			Assert.assertTrue(expectedLength  == largestWord.length());
@@ -29,7 +28,6 @@ static Logger logger = Logger.getLogger(WordLengthCheckerTestNG.class);
 		{
 			largestWord  = WordLengthChecker.lengthChecker(null);
 			Assert.assertNull(largestWord);	
-			//logger.debug("Word is " +largestWord);
 		}
 		
 	}
@@ -38,7 +36,7 @@ static Logger logger = Logger.getLogger(WordLengthCheckerTestNG.class);
 	@DataProvider(name="provideInput")
 	public Object [][] getData()
 	{
-		return new Object[][]{{"This is Harpreet coding","Harpreet"},{"The fox jumped over the moon","jumped"},{"123hithere","123hithere"},{"",""},{"The sky is blue.","blue."}};
+		return new Object[][]{{"This is Harpreet coding","Harpreet"},{"The fox jumped over the moon","jumped"},{"123hithere","123hithere"},{"",""},{"The sky is blue.","blue."}, {null,null}};
 		
 		
 		
